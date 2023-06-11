@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const md5 = require('md5');
 const botName = 'ChatBot';
-
+const PORT = process.env.PORT||3000;
 const app = express();
 
 
@@ -169,6 +169,9 @@ app.post("/transporter", function(req, res) {
     res.redirect("/chat");
 });
 
-app.listen(3000||process.env.PORT, function() {
-    console.log("Listening on port 3000");
-});
+//Connect to the database before listening
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
