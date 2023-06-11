@@ -1,0 +1,43 @@
+<%- include('partials/header') -%>
+<h1>Transports</h1>
+
+<!-- 
+Order ID: List box to select the order id received from the Manufacturer.
+Price: input form, float value
+Reply Button for sending messages back to Manufacturer. -->
+
+<div class="join-container">
+    <header class="join-header">
+        <h1><i class="fas fa-smile"></i> ChatCord</h1>
+    </header>
+    <main class="join-main">
+        <form action="/transporter" method="post">
+            
+            <div class="form-control">
+                <label for="orderID">Select Order ID: </label>
+                <select name="orderID" id="orderID">
+                     <% Options.forEach((order) => { %>
+                        <option value="<%= order._id %>" > <%= order._id %> </option>
+                     <% });	%>
+                </select>
+                <!-- <select name="orderID" id="orderID">
+                       <option value="order123" >Order No. 1</option>
+               </select> -->
+            </div>
+
+            <div class="form-control">
+                <label for="price">Price: </label>
+                <input
+                    type="text"
+                    name="price"
+                    id="price"
+                    placeholder="Enter Price..."
+                    required
+                />
+            </div>
+            <button type="submit" class="btn">Reply</button>
+        </form>
+    </main>
+</div>
+
+<%- include('partials/footer') -%>

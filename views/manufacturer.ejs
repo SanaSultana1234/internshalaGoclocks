@@ -1,0 +1,76 @@
+<%- include('partials/header') -%>
+
+<h1>Manufactures</h1>
+<!-- List out all the messages
+received so far by showcasing order id which you can click and see the content -->
+
+
+<div class="join-container">
+    <header class="join-header">
+        <h1><i class="fas fa-smile"></i> ChatCord</h1>
+    </header>
+    <main class="join-main">
+        <form action="/manufacturer" method="post">
+            <div class="form-control">
+                <label for="from">From: </label>
+                <input
+                    type="text"
+                    name="from"
+                    id="from"
+                    placeholder="Enter From..."
+                    required
+                />
+            </div>
+            <div class="form-control">
+                <label for="to">To: </label>
+                <input
+                    type="text"
+                    name="to"
+                    id="to"
+                    placeholder="Enter To..."
+                    required
+                />
+            </div>
+            <div class="form-control">
+                <label for="address">Address: </label>
+                <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="Enter Address..."
+                />
+            </div>
+            <div class="form-control">
+                <label for="quantity">Quantity</label>
+                <select name="quantity" id="quantity">
+                    <option value="one">1 TON</option>
+                    <option value="two">2 TON</option>
+                    <option value="three">3 TON</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="transporter">Transporter</label>
+                <select name="transporter" id="transporter">
+                    <option value="transporter1">Transporter 1</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </main>
+</div>
+
+<!-- The input form will have 4 input fields and one send push button:  -->
+
+
+<!-- 
+1. Order ID: auto populate an Alphanumeric code (for ex: XB120)
+2. To:
+3. From:
+4. Quantity: Drop down menu where he can choose 1,2,3 ton
+5. Address: Auto populate this field from the address entering during registration
+6. Transporter: Drop down menu to select transporter. Here we can choose only
+single transporter.
+If the manufacturer clicks the push button the message will go to the transporter  -->
+
+
+<%- include('partials/footer') -%>

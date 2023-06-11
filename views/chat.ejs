@@ -1,0 +1,42 @@
+<%- include('partials/header') -%>
+
+<div class="chat-container">
+    <header class="chat-header">
+      <h1><i class="fas fa-smile"></i> ChatCord</h1>
+      <a href="/login" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name">ROOM1</h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users">
+          <li>Transporter</li>
+          <li>Manufacturer</li>
+        </ul>
+      </div>
+      <div class="chat-messages">
+        <% Orders.forEach((order) => { %>
+          <div class="message">
+            <a href="#">ORDER ID: <%= order._id %></a>
+						<p class="text">TO: <%= order.to %>           FROM: <%= order.from %></p>
+						<p class="text">QUANTITY: <%= order.quantity %>                ADDRESS: <%= order.address %>                 TRANSPORTER: <%= order.transporter %></p>
+					</div>
+       <% });	%>
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
+    </div>
+  </div>
+
+<%- include('partials/footer') -%>
