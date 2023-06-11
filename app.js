@@ -46,6 +46,16 @@ const orderSchema = new mongoose.Schema({
 
 const Order = mongoose.model("Order", orderSchema);
 
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(uri);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
+
 app.get("/login", function(req, res) {
     res.render("login");
 });
